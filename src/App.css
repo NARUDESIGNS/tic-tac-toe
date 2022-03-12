@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap');
+
 * {
   padding: 0;
   margin: 0;
@@ -6,9 +8,84 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  color: #343434;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 400px;
+  border: 1px solid purple;
+  padding: 50px 30px;
+}
+
+.logo {
+  align-self: flex-end;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.logo span:nth-child(1) {
+  color: #2194FF;
+}
+.logo span:nth-child(2) {
+  color: #FF3898;
+}
+
+.container {
+  background-color: #F4F4F4;
+  border-radius: 10px;
+  padding: 60px 30px;
+  text-align: center;
+}
+
+.select-marker,
+.select-opponent {
+  margin-bottom: 50px;
+}
+.select {
+  background-color: white;
+  padding: 10px;
+  width: 100%;
+  height: 70px;
+  margin: 10px 0;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(33, 148, 255, 12%);
+}
+.select button {
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  width: 50%;
+  padding: 16px 32px;
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
+  color: #FF3898;
+}
+.select button:hover {
+  opacity: 0.9;
+}
+
+.select .selected-marker,
+.select .selected-opponent {
+  color: white;
+  border-radius: inherit;
+  background-color: #2194FF;
+}
+
+.launch-button {
+  padding: 16px 70px;
+  border: none;
+  border-radius: 10px;
+  background-color: #343434;
+  color: white;
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
 }
