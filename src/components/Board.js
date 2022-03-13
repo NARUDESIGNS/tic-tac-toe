@@ -3,19 +3,18 @@ import BoardButton from './BoardButton';
 
 function Board() {
   const mark = [
-    '', '', '',
-    '', '', '',
-    '', '', ''
+    'X', 'X', 'X',
+    'O', 'O', 'O',
+    'X', 'O', 'X'
   ]
+
+  let won = []; // insert indexes for won buttons e.g [3,4,5]
 
   return (
     <div className="board">
-      <BoardButton value={mark[0]}/>
-      <BoardButton value={mark[1]}/>
-      <BoardButton value={mark[2]}/>
-      <BoardButton value={mark[3]}/>
-      <BoardButton value={mark[4]}/>
-      <BoardButton value={mark[5]}/>
+      {mark.map((spot, index) => (
+        <BoardButton className={won.includes(index) ? "won" : null} value={spot} key={index} />
+      ))}
     </div>
   )
 }

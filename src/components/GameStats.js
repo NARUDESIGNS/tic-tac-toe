@@ -5,15 +5,15 @@ function GameStats({ xScore, tiles, oScore, player }) {
     <div className="stats">
         <span>
             <p>YOU</p>
-            <p>{xScore || 0}</p>
+            <p>{xScore || 15}</p>
         </span>
         <span>
             <p>TILES</p>
-            <p>{tiles || 0}</p>
+            <p>{tiles || 7}</p>
         </span>
         <span>
-            <p>{player}</p>
-            <p>{oScore || 0}</p>
+            <p>{player || "COM"}</p>
+            <p>{oScore || 10}</p>
         </span>
     </div>
   )

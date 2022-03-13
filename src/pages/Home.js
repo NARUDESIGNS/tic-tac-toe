@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../components/Button';
 import Logo from '../components/Logo';
 import Select from '../components/Select';
+import './Home.css';
 
 function Home() {
   return (

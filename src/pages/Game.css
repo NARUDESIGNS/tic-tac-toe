@@ -1,0 +1,51 @@
+
+.board {
+    margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.board .board-button {
+    width: 70px;
+    height: 70px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(33, 148, 255, 12%);
+    font-size: 25px;
+    font-weight: 900;
+    cursor: pointer;
+}
+.board-button:hover {
+    box-shadow: 0 4px 15px rgba(33, 148, 255);
+}
+.board .mark-X {
+    color: #2194ff;
+}
+.board .mark-O {
+    color: #FF3898;
+}
+.board .won {
+    color: white;
+    background-color: #FF3898;
+    box-shadow: none;
+}
+
+.stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 230px;
+    padding: 20px;
+    margin: 30px auto;
+    border-radius: 10px;
+    background-color: #E5E5E5;
+}
+.stats span p:nth-child(2) {
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: center;
+}
