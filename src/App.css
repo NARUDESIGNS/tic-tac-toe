@@ -18,9 +18,8 @@ body {
 .home-page {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  margin: 30px auto;
   width: 400px;
-  border: 1px solid purple;
   padding: 50px 30px;
 }
 
@@ -47,13 +46,17 @@ body {
 .select-opponent {
   margin-bottom: 50px;
 }
+.select-marker .select-note {
+  font-size: 10px;
+  margin: 10px 0;
+}
 .select {
   background-color: white;
   padding: 10px;
   width: 100%;
   height: 70px;
   margin: 10px 0;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 0 4px 15px rgba(33, 148, 255, 12%);
 }
 .select button {
@@ -80,7 +83,9 @@ body {
 }
 
 .launch-button {
-  padding: 16px 70px;
+  padding: 16px 0;
+  width: 207px;
+  text-align: center;
   border: none;
   border-radius: 10px;
   background-color: #343434;
@@ -88,4 +93,16 @@ body {
   font-size: 20px;
   font-weight: 900;
   cursor: pointer;
+}
+
+.game-page {
+  display: none;
+}
+
+
+@media only screen and (min-width: 700px) {
+  .home-page {
+    transform: scale(1.3);
+    margin-top: 70px;
+  }
 }

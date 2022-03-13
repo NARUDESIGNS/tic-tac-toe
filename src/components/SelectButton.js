@@ -1,8 +1,8 @@
 import React from 'react';
 
-function SelectButton({ value, style }) {
+function SelectButton({ handleClick, className, value }) {
   return (
-    <button className={style}>
+    <button onClick={() => handleClick(value)} className={className}>
         {value}
     </button>
   )

@@ -6,7 +6,7 @@ import GameStats from '../components/GameStats';
 
 function Game({ player, mark }) {
   return (
-    <div className="Game-page">
+    <div className="game-page">
         <Logo />
         <div className="container">
             <p> {player} turn - {mark} </p>
