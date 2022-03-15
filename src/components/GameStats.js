@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GameStats({ xScore, tiles, oScore, opponent }) {
+function GameStats({ xScore, ties, oScore, opponent }) {
   return (
     <div className="stats">
         <span>
@@ -8,8 +8,8 @@ function GameStats({ xScore, tiles, oScore, opponent }) {
             <p>{xScore || 0}</p>
         </span>
         <span>
-            <p>TILES</p>
-            <p>{tiles || 0}</p>
+            <p>TIES</p>
+            <p>{ties || 0}</p>
         </span>
         <span>
             <p>{opponent || "COM"}</p>
