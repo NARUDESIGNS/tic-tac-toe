@@ -1,8 +1,11 @@
 import React from 'react'
 
-function BoardButton({ className, value }) {
+function BoardButton({ handleClick, className, value, index }) {
   return (
-    <button className={`${className} ${value === 'X' ? 'mark-X' : 'mark-O'} board-button`}>
+    <button 
+      onClick={() => handleClick(index)}
+      className={`${className} ${value === 'X' ? 'mark-X' : 'mark-O'} board-button`}
+    >
       { value }
     </button>
   )

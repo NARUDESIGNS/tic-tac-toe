@@ -1,23 +1,6 @@
-import React, { useState } from 'react';
 import SelectButton from './SelectButton';
 
-function Select({ type }) {
-  const [selected, setSelected] = useState('X');
-  const [opponent, setOpponent] = useState('COM');
-
-  // marker is selected
-  const handleMarker = (value) => {
-    if (value === 'X') setSelected('X');
-    else setSelected('O');
-  }
-  
-  // opponent is selected
-  const handleOpponent = (value) => {
-    if (value === 'COM') setOpponent('COM');
-    else setOpponent('FRIEND');
-  }
-
-
+function Select({ type, selected, opponent, handleMarker, handleOpponent}) {
   if (type === 'marker') {
       return (
         <div className="select-marker">

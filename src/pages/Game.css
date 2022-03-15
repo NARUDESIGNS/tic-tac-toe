@@ -1,4 +1,4 @@
-
+/* Board styles */
 .board {
     margin: 10px auto;
     display: flex;
@@ -34,18 +34,22 @@
     box-shadow: none;
 }
 
+/* Stats styles */
 .stats {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 230px;
     padding: 20px;
     margin: 30px auto;
     border-radius: 10px;
     background-color: #E5E5E5;
 }
+.stats span p:nth-child(1) {
+    font-size: 14px;
+}
 .stats span p:nth-child(2) {
-    font-size: 12px;
-    margin-top: 5px;
+    font-size: 10px;
+    margin-top: 10px;
     text-align: center;
 }
