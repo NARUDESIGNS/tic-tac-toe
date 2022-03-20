@@ -1,11 +1,11 @@
 import React from 'react';
 
-function GameStats({ xScore, ties, oScore, opponent }) {
+function GameStats({ opponent, ties, yourScore, opponentScore }) {
   return (
     <div className="stats">
         <span>
             <p>YOU</p>
-            <p>{xScore || 0}</p>
+            <p>{yourScore || 0}</p>
         </span>
         <span>
             <p>TIES</p>
@@ -13,7 +13,7 @@ function GameStats({ xScore, ties, oScore, opponent }) {
         </span>
         <span>
             <p>{opponent || "COM"}</p>
-            <p>{oScore || 0}</p>
+            <p>{opponentScore || 0}</p>
         </span>
     </div>
   )
