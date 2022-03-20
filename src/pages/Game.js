@@ -74,7 +74,7 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
 
   // Check if human is playing against com
   useEffect(() => {
-    if (opponent === 'COM' && !turn) comAi(turn, boardState, rules, handleClick);
+    if (opponent === 'COM' && !turn) comAi(turn, boardState, rules, handleClick, roundIsCompleted);
   }, [turn]);
 
   // play and allow next turn
@@ -84,10 +84,7 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
       setTies(prevState => prevState + 1);
       setFinalResult("It's a tie");
       resetGame();
-    }
-    // check if main player wins
-
-    play(); // next player's turn
+    } else play(); // next player's turn
   }, [boardState]);
 
   return (

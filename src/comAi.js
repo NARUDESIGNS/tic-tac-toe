@@ -1,26 +1,31 @@
-const comAi = (comMarker, turn, boardState, rules, handleClick) => {
-    console.log('Com played');
+const comAi = (turn, boardState, rules, handleClick, roundIsCompleted) => {
     // generate random spot 
-    // const playRandomly = () => {
-    //     let randVal = 0;
-    //     while(!boardState[randVal]) {
-    //         randVal = Math.round(Math.random() * 8);
-    //         console.log('got random spot');
-    //     }
-    //     return randVal;
-    //     // if (!boardState[randVal]) return randVal;
-    //     // check if spot is empty then play there
-    // }
+    // check if spot is empty then play there
+    const playRandomly = () => {
+        let randVal = 0;
+        let getRandomSpot = true;
+        while(boardState[randVal] && getRandomSpot) {
+            if (roundIsCompleted) getRandomSpot = false;
+            randVal = Math.round(Math.random() * 8);
+            console.log('random spot ' + randVal);
+        }
+        return randVal;
+    }
     
     // check if it's com's turn, i.e check if turn is set to false (which indicates human's turn is true);
     if (!turn) {
+        let empty = null;
         for (let row of rules) {
             const [x,y,z] = row;
             // if spot x isn't empty and 2 adjacent spots carries same mark, then play on the spot
-            if (boardState[x] && x === y) handleClick(z);
+            if (!boardState[x] && (boardState[y] && boardState[z]) && (boardState[y] === boardState[z])) empty = x;
+            if (!boardState[y] && (boardState[x] && boardState[z]) && (boardState[x] === boardState[z])) empty = y;
+            if (!boardState[z] && (boardState[x] && boardState[y]) && (boardState[x] === boardState[y])) empty = z;
         }
-        // handleClick(playRandomly());
-        console.log('played on random spot');
+        if (empty) {
+            console.log('empty is currently - ' + empty);
+            handleClick(empty);
+        } else handleClick(playRandomly());
     }
 }
 
