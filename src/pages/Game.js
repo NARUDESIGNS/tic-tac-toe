@@ -35,7 +35,7 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
   // reset game
   const resetGame = () => {
     setTimeout(() => {
-      console.log('restart game');
+      console.log('restarted game');
       setBoardState(Array(9).fill(''));
       setFinalResult(null);
       setRoundIsCompleted(false);
@@ -66,7 +66,6 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
       setBoardState(prevState => {
         prevState[index] = turn ? marker : oppMarker;
         gameWon();
-        console.log(prevState[index]);
         return [...prevState];
       })
     }
@@ -74,7 +73,10 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
 
   // Check if human is playing against com
   useEffect(() => {
-    if (opponent === 'COM' && !turn) comAi(turn, boardState, rules, handleClick, roundIsCompleted);
+    if (opponent === 'COM' && !turn) {
+      comAi(turn, boardState, rules, handleClick, roundIsCompleted);
+      console.log('com test did run');
+    }
   }, [turn]);
 
   // play and allow next turn

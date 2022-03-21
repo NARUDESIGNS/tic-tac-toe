@@ -1,13 +1,12 @@
 const comAi = (turn, boardState, rules, handleClick, roundIsCompleted) => {
     // generate random spot 
-    // check if spot is empty then play there
+    // check if spot is empty then play there else check for other empty spots
     const playRandomly = () => {
-        let randVal = 0;
+        let randVal = Math.round(Math.random() * 8);
         let getRandomSpot = true;
         while(boardState[randVal] && getRandomSpot) {
             if (roundIsCompleted) getRandomSpot = false;
             randVal = Math.round(Math.random() * 8);
-            console.log('random spot ' + randVal);
         }
         return randVal;
     }
@@ -22,10 +21,9 @@ const comAi = (turn, boardState, rules, handleClick, roundIsCompleted) => {
             if (!boardState[y] && (boardState[x] && boardState[z]) && (boardState[x] === boardState[z])) empty = y;
             if (!boardState[z] && (boardState[x] && boardState[y]) && (boardState[x] === boardState[y])) empty = z;
         }
-        if (empty) {
-            console.log('empty is currently - ' + empty);
-            handleClick(empty);
-        } else handleClick(playRandomly());
+        if (empty) handleClick(empty);
+        else if (empty === 0) handleClick(empty); // this is here because if empty is 0, the above if statement won't run as 0 evaluates to false0    
+        else handleClick(playRandomly()); // play on random empty spot
     }
 }
 

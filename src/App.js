@@ -28,7 +28,8 @@ function App() {
     turn ? setTurn(false) : setTurn(true);
   }
 
-  useEffect(() => console.log(`Turn - ${turn}, You - ${marker}, Opp - ${oppMarker}`))
+  // log turn details for debugging
+  // useEffect(() => console.log(`Turn - ${turn}, You - ${marker}, Opp - ${oppMarker}`))
   return (
     <div className="App">
       <Home getSelection={getSelection} />
