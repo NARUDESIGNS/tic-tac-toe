@@ -22,6 +22,12 @@ body {
   margin: 30px auto;
   width: 400px;
   padding: 50px 30px;
+  animation: fade-in 1s ease;
+}
+
+@keyframes fade-in {
+  from {opacity: 0}
+  to {opacity: 1}
 }
 
 .logo {
@@ -54,14 +60,6 @@ body {
   font-size: 20px;
   font-weight: 900;
   cursor: pointer;
-}
-
-.home-page {
-  /* display: none; */
-}
-
-.game-page {
-  /* display: none; */
 }
 
 @media only screen and (min-width: 700px) {

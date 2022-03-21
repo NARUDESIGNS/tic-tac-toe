@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import Game from './pages/Game';
 import Home from './pages/Home';
@@ -29,12 +30,35 @@ function App() {
   }
 
   // log turn details for debugging
-  // useEffect(() => console.log(`Turn - ${turn}, You - ${marker}, Opp - ${oppMarker}`))
+  useEffect(() => console.log(`Turn - ${turn}, You - ${marker}, Opp - ${oppMarker}`))
   return (
-    <div className="App">
-      <Home getSelection={getSelection} />
-      <Game opponent={opponent} marker={marker} play={play} oppMarker={oppMarker} turn={turn} setTurn={setTurn}/>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route exact path='/' element={<Home getSelection={getSelection} />} />
+          <Route 
+            exact path='/game' 
+            element={
+              <Game opponent={opponent} 
+              marker={marker} 
+              play={play} 
+              oppMarker={oppMarker} 
+              turn={turn} 
+              setTurn={setTurn}/>
+            } 
+          />
+          {/* when user routes to unknown route */}
+          <Route
+            path="*"
+            element={
+              <main style={{ padding: "1rem" }}>
+                <p>There's nothing here!</p>
+              </main>
+            }
+          />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

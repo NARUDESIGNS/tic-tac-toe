@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import comAi from '../comAi';
 import Board from '../components/Board';
 import Button from '../components/Button';
@@ -73,10 +74,7 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
 
   // Check if human is playing against com
   useEffect(() => {
-    if (opponent === 'COM' && !turn) {
-      comAi(turn, boardState, rules, handleClick, roundIsCompleted);
-      console.log('com test did run');
-    }
+    if (opponent === 'COM' && !turn) comAi(turn, boardState, rules, handleClick, roundIsCompleted);
   }, [turn]);
 
   // play and allow next turn
@@ -110,7 +108,9 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
             yourScore={yourScore} 
             opponentScore={opponentScore}
           />
-          <Button value="RESTART" />
+          <Link to="/">
+              <Button value="RESTART" />
+          </Link>
         </div>
     </div>
   )
