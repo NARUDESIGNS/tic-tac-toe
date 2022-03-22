@@ -1,8 +1,11 @@
 import React from 'react';
 
-function Button({value}) {
+function Button({value, resetGame}) {
   return (
-    <button className="launch-button">{ value }</button>
+    <button 
+      onClick={() => value === "RESTART" ? resetGame() : null} 
+      className="launch-button">{ value }
+    </button>
   )
 }
 

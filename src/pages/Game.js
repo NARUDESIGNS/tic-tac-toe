@@ -109,7 +109,7 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
             opponentScore={opponentScore}
           />
           <Link to="/">
-              <Button value="RESTART" />
+              <Button value="RESTART" resetGame={resetGame}/>
           </Link>
         </div>
     </div>

@@ -6,10 +6,10 @@ import Home from './pages/Home';
 
 function App() {
   // state data will be after the home component loads
-  const [marker, setMarker] = useState(null);
-  const [oppMarker, setOppMarker] = useState(null);
-  const [opponent, setOpponent] = useState(null);
-  const [turn, setTurn] = useState(null);
+  const [marker, setMarker] = useState('X');
+  const [oppMarker, setOppMarker] = useState('O');
+  const [opponent, setOpponent] = useState('COM');
+  const [turn, setTurn] = useState(true);
 
   // read selection inputs from home page
   const getSelection = (marker, opponent) => {
@@ -26,6 +26,7 @@ function App() {
 
   // set next turn
   const play = () => {
+    console.log("played")
     turn ? setTurn(false) : setTurn(true);
   }
 
@@ -51,9 +52,9 @@ function App() {
           <Route
             path="*"
             element={
-              <main style={{ padding: "1rem" }}>
-                <p>There's nothing here!</p>
-              </main>
+              <div style={{textAlign: "center", fontSize: "2em", color: "red", marginTop: 50}}>
+                <p>404 Not Found!</p>
+              </div>
             }
           />
         </Routes>
