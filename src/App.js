@@ -31,21 +31,22 @@ function App() {
   }
 
   // log turn details for debugging
-  useEffect(() => console.log(`Turn - ${turn}, You - ${marker}, Opp - ${oppMarker}`))
+  // useEffect(() => console.log(`Turn - ${turn}, You - ${marker}, Opp - ${oppMarker}`))
   return (
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route exact path='/' element={<Home getSelection={getSelection} />} />
+          <Route exact path='/' element={ <Home getSelection={getSelection} /> } />
           <Route 
             exact path='/game' 
             element={
-              <Game opponent={opponent} 
-              marker={marker} 
-              play={play} 
-              oppMarker={oppMarker} 
-              turn={turn} 
-              setTurn={setTurn}/>
+              <Game 
+                opponent={opponent} 
+                marker={marker} 
+                play={play} 
+                oppMarker={oppMarker} 
+                turn={turn} 
+                setTurn={setTurn}/>
             } 
           />
           {/* when user routes to unknown route */}

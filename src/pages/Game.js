@@ -41,7 +41,8 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
       setFinalResult(null);
       setRoundIsCompleted(false);
       setWinPattern([]);
-      marker === 'X' ? setTurn(true) : setTurn(false);
+      setTurn(prevTurn => !prevTurn);
+      // marker === 'X' ? setTurn(true) : setTurn(false);
     }, 2000);
   }
 
@@ -74,17 +75,23 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
 
   // Check if human is playing against com
   useEffect(() => {
-    if (opponent === 'COM' && !turn) comAi(turn, boardState, rules, handleClick, roundIsCompleted);
+    let isMounted = true;
+    if (isMounted && opponent === 'COM' && !turn) comAi(turn, boardState, rules, handleClick, roundIsCompleted);
+    return () => isMounted = false;
   }, [turn]);
 
   // play and allow next turn
   useEffect(() => {
+    let isMounted = true;
     // check if all spots has some value but no winner, game result is a tie 
-    if (winPattern.length < 1 && boardState.every(spot => spot != '')) {
+    if (isMounted && (winPattern.length < 1) && (boardState.every(spot => spot !== ''))) {
       setTies(prevState => prevState + 1);
       setFinalResult("It's a tie");
       resetGame();
-    } else play(); // next player's turn
+    } else if (boardState.some(spot => spot !== '')) play(); // next player's turn
+    return () => {
+      isMounted = false;
+    }
   }, [boardState]);
 
   return (
