@@ -9,6 +9,7 @@ import './Game.css';
 
 
 function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
+  let timeout;
   const [ties, setTies] = useState(0);
   const [yourScore, setYourScore] = useState(0);
   const [opponentScore, setOpponentScore] = useState(0);
@@ -35,7 +36,7 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
 
   // reset game
   const resetGame = () => {
-    setTimeout(() => {
+    timeout = setTimeout(() => {
       console.log('restarted game');
       setBoardState(Array(9).fill(''));
       setFinalResult(null);
@@ -43,7 +44,7 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
       setWinPattern([]);
       setTurn(prevTurn => !prevTurn);
       // marker === 'X' ? setTurn(true) : setTurn(false);
-    }, 2000);
+    }, 1200); 
   }
 
   // check if game is won
@@ -75,9 +76,7 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
 
   // Check if human is playing against com
   useEffect(() => {
-    let isMounted = true;
-    if (isMounted && opponent === 'COM' && !turn) comAi(turn, boardState, rules, handleClick, roundIsCompleted);
-    return () => isMounted = false;
+    if (opponent === 'COM' && !turn) comAi(turn, boardState, rules, handleClick, roundIsCompleted);
   }, [turn]);
 
   // play and allow next turn
@@ -91,6 +90,7 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
     } else if (boardState.some(spot => spot !== '')) play(); // next player's turn
     return () => {
       isMounted = false;
+      clearTimeout(timeout);
     }
   }, [boardState]);
 
@@ -116,7 +116,7 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
             opponentScore={opponentScore}
           />
           <Link to="/">
-              <Button value="RESTART" resetGame={resetGame}/>
+              <Button value="RESTART"/>
           </Link>
         </div>
     </div>
