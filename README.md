@@ -13,10 +13,13 @@ Thank you.
 # Installation
 Please run the following commands <br>
 * Install dependencies
+
 `npm install`
 * Launch localhost to preview application
+
 `npm run start`
 * Compile code for production deployment
+
 `npm run build`
 
 # Appreciation
