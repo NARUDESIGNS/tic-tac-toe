@@ -1,3 +1,5 @@
+![](/Design.png)
+
 # TIC-TAC-TOE
 This is a simple tic-tac-toe game with the exception of playing against an algorithm or against a friend. <br>
 At the very start, you have to select your marker `X` or `O`. Note: `X` goes first. <br>
