@@ -43,7 +43,6 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
       setRoundIsCompleted(false);
       setWinPattern([]);
       setTurn(prevTurn => !prevTurn);
-      // marker === 'X' ? setTurn(true) : setTurn(false);
     }, 1200); 
   }
 
