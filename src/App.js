@@ -26,7 +26,6 @@ function App() {
 
   // set next turn
   const play = () => {
-    console.log("played")
     turn ? setTurn(false) : setTurn(true);
   }
 

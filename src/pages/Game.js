@@ -87,7 +87,7 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
       setTies(prevState => prevState + 1);
       setFinalResult("It's a tie");
       resetGame();
-    } else if (boardState.some(spot => spot !== '')) play(); // next player's turn
+    } else if (isMounted && boardState.some(spot => spot !== '')) play(); // next player's turn
     return () => {
       isMounted = false;
       clearTimeout(timeout);
