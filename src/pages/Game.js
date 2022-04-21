@@ -89,12 +89,10 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
   }, [boardState]);
 
     // Check if human is playing against com
-    useEffect(() => {
+  useEffect(() => {
       if (opponent === 'COM' && !turn) comAi(turn, boardState, rules, handleClick, roundIsCompleted);
     }, [turn]);
   
-    
-
   return (
     <div className="game-page">
         <Logo />
