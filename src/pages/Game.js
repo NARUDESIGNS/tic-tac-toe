@@ -73,12 +73,7 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
     }
   }
 
-  // Check if human is playing against com
-  useEffect(() => {
-    if (opponent === 'COM' && !turn) comAi(turn, boardState, rules, handleClick, roundIsCompleted);
-  }, [turn]);
-
-  // play and allow next turn
+// play and allow next turn
   useEffect(() => {
     let isMounted = true;
     // check if all spots has some value but no winner, game result is a tie 
@@ -93,6 +88,11 @@ function Game({ opponent, marker, oppMarker, turn, setTurn, play }) {
     }
   }, [boardState]);
 
+    // Check if human is playing against com
+  useEffect(() => {
+      if (opponent === 'COM' && !turn) comAi(turn, boardState, rules, handleClick, roundIsCompleted);
+    }, [turn]);
+  
   return (
     <div className="game-page">
         <Logo />
